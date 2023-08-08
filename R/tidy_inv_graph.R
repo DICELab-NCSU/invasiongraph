@@ -49,7 +49,7 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
   igraph::V(g)$x <- xvals
   igraph::V(g)$y <- yvals
   # set vertex names
-  v.name <- "∅"
+  v.name <- "EMPTY"
   for(i in 2:k){
     temp <- composition[[i]]
     v.name <- c(v.name, paste(unlist(temp), collapse=""))
@@ -81,9 +81,9 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
     vcols[i] <- NA
     vertex.frame.cols[i] <- NA
     vertex.label.cols[i] <- ""
-    for(j in which(edges_data_frame$to == i)) {
-      igraph::E(g)$type[j] <- NA
-    }
+    # for(j in which(edges_data_frame$to == i)) {
+    #   igraph::E(g)$type[j] <- NA
+    # }
   }
   igraph::V(g)$type <- vcols
   # permanence

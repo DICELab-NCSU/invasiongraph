@@ -8,6 +8,14 @@
 \description{
 Functions for calculating the invasion pathways by which communities assemble using the principles of Modern Coexistence Theory. The code for the core functions was written by Sebastian Schreiber and included as a Supplementary File with Hofbauer & Schreiber (2023; doi: 10.48550/arXiv.2204.03773). This package is intended to enable easier access to this code.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/DICELab-NCSU/invasiongraph}
+  \item Report bugs at \url{https://github.com/DICELab-NCSU/invasiongraph/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: William K. Petry \email{wpetry@ncsu.edu} (\href{https://orcid.org/0000-0002-5230-5987}{ORCID})
 
