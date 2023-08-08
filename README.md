@@ -19,9 +19,12 @@ functions in this package come from the R code archive that accompanies:
 > Math. Biol. 85:54. <https://doi.org/10.1007/s00285-022-01815-2>
 
 In addition to the more accessible format of an R package, we have
-added: - Checks and informative error messages - Grammar of Graphics
-plotting via `tidygraph` and `ggraph` - (planned) Dedicated object
-classes - (planned) Support for uncertainty propagation
+added:
+
+- Checks and informative error messages
+- Grammar of Graphics plotting via `tidygraph` and `ggraph`
+- (planned) Dedicated object classes
+- (planned) Support for uncertainty propagation
 
 ## Installation
 

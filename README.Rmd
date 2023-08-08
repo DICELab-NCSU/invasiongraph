@@ -25,6 +25,7 @@ The goal of `invasiongraph` is to compute the potential community assembly pathw
 > Hofbauer, J., Schreiber, S.J. (2022) Permanence via invasion graphs: incorporating community assembly into modern coexistence theory. J. Math. Biol. 85:54. [https://doi.org/10.1007/s00285-022-01815-2](https://doi.org/10.1007/s00285-022-01815-2)
 
 In addition to the more accessible format of an R package, we have added:
+
 - Checks and informative error messages
 - Grammar of Graphics plotting via `tidygraph` and `ggraph`
 - (planned) Dedicated object classes
