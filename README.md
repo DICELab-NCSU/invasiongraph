@@ -6,13 +6,26 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/DICELab-NCSU/invasiongraph/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DICELab-NCSU/invasiongraph/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of invasiongraph is to …
+The goal of `invasiongraph` is to compute the potential community
+assembly pathways for a community of interacting species. The core
+functions in this package come from the R code archive that accompanies:
+
+> Hofbauer, J., Schreiber, S.J. (2022) Permanence via invasion graphs:
+> incorporating community assembly into modern coexistence theory. J.
+> Math. Biol. 85:54. <https://doi.org/10.1007/s00285-022-01815-2>
+
+In addition to the more accessible format of an R package, we have
+added: - Checks and informative error messages - Grammar of Graphics
+plotting via `tidygraph` and `ggraph` - (planned) Dedicated object
+classes - (planned) Support for uncertainty propagation
 
 ## Installation
 
-You can install the development version of invasiongraph from
+You can install the development version of `invasiongraph` from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -28,6 +41,7 @@ This is a basic example which shows you how to solve a common problem:
 library(invasiongraph)
 
 # simulate Lotka-Volterra system
+set.seed(24)
 n <- 6  # number of species
 A <- -diag(n) - 1.5 * matrix(runif(n^2), n, n)  # interaction matrix
 r <- matrix(1, n, 1)  # intrinsic growth rates
