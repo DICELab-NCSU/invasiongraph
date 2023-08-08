@@ -1,0 +1,27 @@
+Type: Package
+Package: invasiongraph
+Title: Community assembly analysis with invasion graphs
+Version: 0.1.0
+Authors@R: c(
+    person("Sebastian", "Schreiber", role = "aut"),
+    person("Josef", "Hofbauer", role = "aut"),
+    person("William K.", "Petry", , "wpetry@ncsu.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5230-5987"))
+  )
+Maintainer: William K. Petry <wpetry@ncsu.edu>
+Description: Functions for calculating the invasion pathways by which
+    communities assemble using the principles of Modern Coexistence
+    Theory. The code for the core functions was written by Sebastian
+    Schreiber and included as a Supplementary File with Hofbauer &
+    Schreiber (2023; doi: 10.48550/arXiv.2204.03773). This package is
+    intended to enable easier access to this code.
+License: GPL (>= 3)
+Imports: 
+    ggplot2,
+    ggraph,
+    igraph,
+    matrixcalc,
+    utils
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
