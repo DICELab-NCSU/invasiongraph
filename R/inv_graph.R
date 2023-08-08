@@ -4,6 +4,7 @@
 #'     columns representing species.
 #' @param skip_minus_i logical, when TRUE the -i communities will be skipped, speeding up
 #'     the calculation
+#'
 #' @return list containing an invasion graph and corresponding metadata. See Details for
 #'     description of list elements.
 #' @details
@@ -17,7 +18,7 @@
 #'   \item{composition}{list containing vectors with the species ids in each community}
 #'   \item{IS}{matrix containing the originally supplied invasion scheme}
 #' }
-#'
+#' @author Sebastian Schreiber
 #' @importFrom igraph graph_from_adjacency_matrix
 #' @importFrom igraph is_dag
 #' @export

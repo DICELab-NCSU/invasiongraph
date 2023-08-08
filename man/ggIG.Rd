@@ -16,11 +16,17 @@ a ggplot
 Plot invasion graph using grammar of graphics
 }
 \examples{
+\dontrun{
 n <- 6  # set number of species
 A <- -diag(n) - 1.5 * matrix(runif(n^2), n, n)
 r <- matrix(1, n, 1)
 sch <- inv_scheme(A, r)
 gra <- inv_graph(IS = sch)
-ggIG(gra)
+tidy_gra <- tidy_inv_graph(gra)
+ggIG(tidy_gra)
+}
 
+}
+\author{
+William K. Petry
 }

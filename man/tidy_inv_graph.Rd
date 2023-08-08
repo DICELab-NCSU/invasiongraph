@@ -28,3 +28,6 @@ gra <- inv_graph(IS = sch)
 tidy_inv_graph(gra)
 
 }
+\author{
+William K. Petry
+}

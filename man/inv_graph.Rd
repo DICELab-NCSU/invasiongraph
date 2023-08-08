@@ -41,3 +41,6 @@ gra <- inv_graph(IS = sch)
 gra2 <- inv_graph(IS = sch, skip_minus_i = TRUE)
 
 }
+\author{
+Sebastian Schreiber
+}

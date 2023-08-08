@@ -9,6 +9,7 @@
 #'
 #' @return An n x n numeric matrix containing an invasion scheme, where rows correspond to
 #'     communities and columns correspond to species.
+#' @author Sebastian Schreiber
 #' @importFrom matrixcalc is.singular.matrix
 #' @importFrom utils combn
 #' @export

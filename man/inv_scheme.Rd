@@ -31,3 +31,6 @@ r <- matrix(1, n, 1)
 sch <- inv_scheme(A, r)
 
 }
+\author{
+Sebastian Schreiber
+}
