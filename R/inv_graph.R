@@ -35,7 +35,7 @@ inv_graph <- function(IS, skip_minus_i = FALSE){
   if(!is.matrix(IS)) stop("IS must be an invasion scheme matrix")
   k <- dim(IS)[1] # number of communities
   n <- dim(IS)[2] # number of species
-  if(k > sum(choose(n, 1:n))) stop("IS has more rows than possible communities.")
+  # if(k > (1 + sum(choose(n, 1:n)))) stop("IS has more rows than possible communities.")
   composition <- vector(k, mode = "list") # a list to hold the composition of the communities
   for(i in 1:k) composition[[i]] <- which(IS[i, ] == 0)
   # compute the invasion graph

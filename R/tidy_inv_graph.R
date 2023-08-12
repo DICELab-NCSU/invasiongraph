@@ -29,6 +29,18 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
   not.permanent <- which(!dat$permanent)
   # create graph
   g <- igraph::graph_from_adjacency_matrix(IG)
+  # get edge vertex info: column 1 = tail, 2 = tip
+  edges_data_frame <- igraph::get.data.frame(g, what = "edges")
+  # annotate edges with single vs multiple invasion
+  for(i in 1:length(edges_data_frame[, 1])){
+    igraph::E(g)$invasion_type[i] <- "multiple"
+    SS <- composition[[edges_data_frame[i, 1]]]
+    TT <- composition[[edges_data_frame[i, 2]]]
+    if(length(setdiff(TT, SS)) < 2){
+      igraph::E(g)$invasion_type[i] <- "single"
+      if(is.element(edges_data_frame[i, 2], omit)) igraph::E(g)$invasion_type[i] <- NA
+    }
+  }
   k <- length(number.species) # number of communities
   # set vertex coordinates
   xvals <- numeric(k)
@@ -61,7 +73,7 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
   for(i in 1:dim(IS)[2]){
     for(j in minus.i[[i]]) {
       if(IS[j, i] > 0) {
-        vcols[j] <- "invasible -i"
+        vcols[j] <- "invadable -i"
         # for(jj in which(edges_data_frame$from == j)) {
         #   SS <- composition[j]
         #   TT <- composition[edges_data_frame$to[jj]]
@@ -71,7 +83,7 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
         #   }
         # }
       } else {
-        vcols[j] <- "non-invasible -i"
+        vcols[j] <- "saturated -i"
       }
     }
   }

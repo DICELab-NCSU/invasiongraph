@@ -48,12 +48,12 @@ This is a basic example which shows you how to solve a common problem:
 library(invasiongraph)
 
 # simulate Lotka-Volterra system
-set.seed(24)
+set.seed(2332)
 n <- 6  # number of species
 A <- -diag(n) - 1.5 * matrix(runif(n^2), n, n)  # interaction matrix
 r <- matrix(1, n, 1)  # intrinsic growth rates
 
-# compute the invastion scheme
+# compute the invasion scheme
 sch <- inv_scheme(A, r)
 
 # calculate the invasion graph

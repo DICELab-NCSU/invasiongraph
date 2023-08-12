@@ -4,7 +4,16 @@
 \alias{ggIG}
 \title{Plot invasion graph using grammar of graphics}
 \usage{
-ggIG(tbl)
+ggIG(
+  tbl,
+  node_size = 18,
+  node_stroke = 1,
+  node_color = c("grey", "black"),
+  node_fill = c(` TRUE` = "#BB5566", `invadable -i TRUE` = "#DDAA33", `saturated -i TRUE`
+    = "#004488", ` FALSE` = "#FF9CAA", `invadable -i FALSE` = "#FFD180",
+    `saturated -i FALSE` = "#809CDC"),
+  edge_color = c("grey80", "grey40")
+)
 }
 \arguments{
 \item{tbl}{list containing an invasion graph and associated metadata}
