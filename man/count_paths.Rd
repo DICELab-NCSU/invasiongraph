@@ -29,3 +29,6 @@ tidy_gra <- tidy_inv_graph(gra)
 count_paths(tidy_gra, from = "EMPTY", to = "345")
 
 }
+\author{
+William K. Petry
+}

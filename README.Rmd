@@ -63,7 +63,7 @@ gra <- inv_graph(IS = sch)
 tidy_gra <- tidy_inv_graph(gra)
 
 # plot
-ggIG(tidy_gra, node_size = 12)
+ggIG(tidy_gra, node_size = 8, edge_width = c(0.05, 0.2))
 ```
 
 

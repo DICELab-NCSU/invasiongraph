@@ -6,6 +6,8 @@
 #' @param node_color colors of the graph nodes/vertices outline
 #' @param node_fill colors of the the graph nodes/vertices fill
 #' @param edge_color colors of the graph edge
+#' @param edge_width numeric vector of line widths to use for multiple and single invasions
+#' @param text_color color of the text labeling each node; may use named R colors or hex code
 #'
 #' @return a ggplot
 #' @author William K. Petry

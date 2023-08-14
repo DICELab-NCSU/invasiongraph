@@ -5,6 +5,7 @@
 #' @param to name of the target vertex/node in the invasion graph
 #'
 #' @return an integer count of the total paths between nodes
+#' @author William K. Petry
 #' @export
 #' @importFrom igraph V
 #' @importFrom igraph is.dag

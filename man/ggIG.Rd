@@ -29,6 +29,10 @@ ggIG(
 \item{node_fill}{colors of the the graph nodes/vertices fill}
 
 \item{edge_color}{colors of the graph edge}
+
+\item{edge_width}{numeric vector of line widths to use for multiple and single invasions}
+
+\item{text_color}{color of the text labeling each node; may use named R colors or hex code}
 }
 \value{
 a ggplot
