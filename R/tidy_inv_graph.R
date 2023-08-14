@@ -75,6 +75,7 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
       if(IS[j, i] > 0) {
         vcols[j] <- "invadable -i"
         # for(jj in which(edges_data_frame$from == j)) {
+        #   igraph::E(g)$type[jj] <- "leaving -i"
         #   SS <- composition[j]
         #   TT <- composition[edges_data_frame$to[jj]]
         #   if(length(setdiff(SS, TT)) < 2) {
@@ -101,6 +102,7 @@ tidy_inv_graph <- function(dat, omit = c(), bend = 0.75) {
   # permanence
   igraph::V(g)$permanent <- dat$permanent[, 1]
   # tidy
-  out <- tidygraph::as_tbl_graph(g)
+  g <- tidygraph::activate(.data = tidygraph::as_tbl_graph(g), what = edges)
+  out <- tidygraph::arrange(g, invasion_type)
   return(out)
 }

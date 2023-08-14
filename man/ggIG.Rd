@@ -6,13 +6,15 @@
 \usage{
 ggIG(
   tbl,
-  node_size = 18,
-  node_stroke = 1,
+  node_size = 12,
+  node_stroke = 0.75,
   node_color = c("grey", "black"),
-  node_fill = c(` TRUE` = "#BB5566", `invadable -i TRUE` = "#DDAA33", `saturated -i TRUE`
-    = "#004488", ` FALSE` = "#FF9CAA", `invadable -i FALSE` = "#FFD180",
+  node_fill = c(` TRUE` = "#FFFFFF", `invadable -i TRUE` = "#DDAA33", `saturated -i TRUE`
+    = "#2B5596", ` FALSE` = "#EEEEEE", `invadable -i FALSE` = "#FFD180",
     `saturated -i FALSE` = "#809CDC"),
-  edge_color = c("grey80", "grey40")
+  edge_color = c(multiple = "grey70", single = "grey40", `leaving -i` = "#DDAA33"),
+  edge_width = c(single = 0.5, multiple = 0.15),
+  text_color = "black"
 )
 }
 \arguments{
