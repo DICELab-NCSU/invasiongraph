@@ -17,6 +17,16 @@ ggIG(
 }
 \arguments{
 \item{tbl}{list containing an invasion graph and associated metadata}
+
+\item{node_size}{numeric, size of the graph nodes/vertices}
+
+\item{node_stroke}{numeric, size of the graph nodes/vertices outline}
+
+\item{node_color}{colors of the graph nodes/vertices outline}
+
+\item{node_fill}{colors of the the graph nodes/vertices fill}
+
+\item{edge_color}{colors of the graph edge}
 }
 \value{
 a ggplot

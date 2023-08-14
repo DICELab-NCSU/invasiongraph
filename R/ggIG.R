@@ -1,6 +1,11 @@
 #' Plot invasion graph using grammar of graphics
 #'
 #' @param tbl list containing an invasion graph and associated metadata
+#' @param node_size numeric, size of the graph nodes/vertices
+#' @param node_stroke numeric, size of the graph nodes/vertices outline
+#' @param node_color colors of the graph nodes/vertices outline
+#' @param node_fill colors of the the graph nodes/vertices fill
+#' @param edge_color colors of the graph edge
 #'
 #' @return a ggplot
 #' @author William K. Petry
