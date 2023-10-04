@@ -32,13 +32,13 @@ You can install the development version of `invasiongraph` from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("DICELab-NCSU/invasiongraph")
+# install.packages("remotes")
+remotes::install_github("DICELab-NCSU/invasiongraph")
 ```
 
-## Example
+## Core functionality
 
-This is a basic example which shows you how to solve a common problem:
+### Simulate data for a Lotka-Volterra competitive system
 
 ``` r
 library(invasiongraph)
@@ -48,13 +48,21 @@ set.seed(2332)
 n <- 6  # number of species
 A <- -diag(n) - 1.5 * matrix(runif(n^2), n, n)  # interaction matrix
 r <- matrix(1, n, 1)  # intrinsic growth rates
+```
 
+### Calculate invasion schemes and graphs
+
+``` r
 # compute the invasion scheme
 sch <- inv_scheme(A, r)
 
 # calculate the invasion graph
 gra <- inv_graph(IS = sch)
+```
 
+### Visualize invasion graphs
+
+``` r
 # tidy invasion graph to prepare for plotting
 tidy_gra <- tidy_inv_graph(gra)
 
@@ -62,4 +70,7 @@ tidy_gra <- tidy_inv_graph(gra)
 ggIG(tidy_gra, node_size = 8, edge_width = c(0.05, 0.2))
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-plot-1.png" width="100%" /> \###
+Propagating uncertainty
+
+### Distinguishing invasion graphs
