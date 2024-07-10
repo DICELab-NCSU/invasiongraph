@@ -23,7 +23,7 @@
 inv_scheme <- function(A, r, model = "LV", tol = 1e-14) {
   if(!is.square(A)) stop("A must be a square matrix.")
   if(!dim(A)[1] == length(r)) stop("Dimensions of A and r imply different numbers of species.")
-  if(matrixcalc::is.singular.matrix(A)) stop("A must be invertible.")
+  if(matrixcalc::is.singular.matrix(A, tol)) stop("A must be invertible.")
 
   n <- dim(A)[1]
   C <- list() # communities (as equilibria)
