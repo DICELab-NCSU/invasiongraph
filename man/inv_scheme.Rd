@@ -4,7 +4,14 @@
 \alias{inv_scheme}
 \title{Compute the invasion scheme for a group of species}
 \usage{
-inv_scheme(A, r, model = "LV", tol = 1e-14)
+inv_scheme(
+  A,
+  r,
+  model = "LV",
+  zero = 1e-14,
+  tol_singular = 1e-08,
+  tol_solve = .Machine$double.eps
+)
 }
 \arguments{
 \item{A}{matrix containing the n x n interaction coefficients between all pairs of
@@ -15,7 +22,14 @@ species.}
 \item{model}{the underlying dynamic model describing changes in species abundance.
 Currently limited to "LV" for Lotka-Volterra.}
 
-\item{tol}{numeric value below which values will be rounded down to zero.}
+\item{zero}{numeric absolute value below which invasion scheme growth rates will be
+rounded down to zero. Setting equal to 0 will skip rounding. Defaults to 1e-14.}
+
+\item{tol_singular}{numeric tolerance for the test for matrix singularity. Defaults
+to 1e-08.}
+
+\item{tol_solve}{numeric tolerance for detecting linear dependencies in the columns of A.
+The default is `.Machine$double.eps`.}
 }
 \value{
 An n x n numeric matrix containing an invasion scheme, where rows correspond to

@@ -6,7 +6,7 @@
 \alias{invasiongraph-package}
 \title{invasiongraph: Community assembly analysis with invasion graphs}
 \description{
-Functions for calculating the invasion pathways by which communities assemble using the principles of Modern Coexistence Theory. The code for the core functions was written by Sebastian Schreiber and included as a Supplementary File with Hofbauer & Schreiber (2023; doi: 10.48550/arXiv.2204.03773). This package is intended to enable easier access to this code.
+Functions for calculating the invasion pathways by which communities assemble using the principles of Modern Coexistence Theory. The code for the core functions was written by Sebastian Schreiber and included as a Supplementary File with Hofbauer & Schreiber (2022; doi: 10.1007/s00285-022-01815-2). This package is intended to enable easier access to this code.
 }
 \seealso{
 Useful links:
@@ -21,8 +21,8 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Sebastian Schreiber
   \item Josef Hofbauer
+  \item Sebastian Schreiber
 }
 
 }

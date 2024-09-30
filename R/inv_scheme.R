@@ -5,7 +5,12 @@
 #' @param r numeric vector containing the intrinsic growth rates for all n species.
 #' @param model the underlying dynamic model describing changes in species abundance.
 #'     Currently limited to "LV" for Lotka-Volterra.
-#' @param tol numeric value below which values will be rounded down to zero.
+#' @param zero numeric absolute value below which invasion scheme growth rates will be
+#'     rounded down to zero. Setting equal to 0 will skip rounding. Defaults to 1e-14.
+#' @param tol_singular numeric tolerance for the test for matrix singularity. Defaults
+#'     to 1e-08.
+#' @param tol_solve numeric tolerance for detecting linear dependencies in the columns of A.
+#'     The default is `.Machine$double.eps`.
 #'
 #' @return An n x n numeric matrix containing an invasion scheme, where rows correspond to
 #'     communities and columns correspond to species.
@@ -20,10 +25,11 @@
 #' r <- matrix(1, n, 1)
 #' sch <- inv_scheme(A, r)
 #'
-inv_scheme <- function(A, r, model = "LV", tol = 1e-14) {
+inv_scheme <- function(A, r, model = "LV", zero = 1e-14, tol_singular = 1e-08,
+                       tol_solve = .Machine$double.eps) {
   if(!is.square(A)) stop("A must be a square matrix.")
   if(!dim(A)[1] == length(r)) stop("Dimensions of A and r imply different numbers of species.")
-  if(matrixcalc::is.singular.matrix(A, tol)) stop("A must be invertible.")
+  if(matrixcalc::is.singular.matrix(A, tol_singular)) stop("A must be invertible.")
 
   n <- dim(A)[1]
   C <- list() # communities (as equilibria)
@@ -34,7 +40,7 @@ inv_scheme <- function(A, r, model = "LV", tol = 1e-14) {
     k2 <- dim(temp)[2]
     for(j in 1:k2){
       I <- temp[, j]
-      xtemp <- solve(a = A[I, I], b = -r[I])
+      xtemp <- solve(a = A[I, I], b = -r[I], tol_solve)
       if(min(xtemp) > 0){
         no.C <- no.C + 1
         xtemp2 <- C[[1]]
@@ -48,6 +54,6 @@ inv_scheme <- function(A, r, model = "LV", tol = 1e-14) {
   for(i in 1:length(C)){
     IS[i, ] <- A %*% C[[i]] + r
   }
-  IS[which(abs(IS) < tol)] <- 0
+  IS[which(abs(IS) < zero)] <- 0
   return(IS)
 }
