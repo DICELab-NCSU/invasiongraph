@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("William K.", "Petry", , "wpetry@ncsu.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5230-5987")),
-    person("Josef", "Hofbauer", role = "aut"),
+    person("Josef", "Hofbauer", role = "ctb"),
     person("Sebastian", "Schreiber", role = "aut")
   )
 Maintainer: William K. Petry <wpetry@ncsu.edu>

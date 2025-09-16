@@ -26,10 +26,10 @@
 #'
 ggIG <- function(tbl, node_size = 12, node_stroke = 0.75,
                  node_color = c("grey", "black"),
-                 node_fill = c(` TRUE` = "#FFFFFF", `invadable -i TRUE` = "#DDAA33",
-                               `saturated -i TRUE` = "#2B5596",
-                               ` FALSE` = "#EEEEEE", `invadable -i FALSE` = "#FFD180",
-                               `saturated -i FALSE` = "#809CDC"),
+                 node_fill = c(`transient permanent` = "#FFFFFF", `invadable -i permanent` = "#DDAA33",
+                               `saturated -i permanent` = "#2B5596",
+                               `transient nonpermanent` = "#EEEEEE", `invadable -i nonpermanent` = "#FFD180",
+                               `saturated -i nonpermanent` = "#809CDC"),
                  edge_color = c(multiple = "grey70", single = "grey40", `leaving -i` = "#DDAA33"),
                  edge_width = c(single = 0.5, multiple = 0.15),
                  text_color = "black") {
@@ -38,17 +38,16 @@ ggIG <- function(tbl, node_size = 12, node_stroke = 0.75,
                           arrow = grid::arrow(angle = 20, length = grid::unit(3, 'mm'), type = "closed"),
                           start_cap = ggraph::circle(node_size / 2, 'mm'),
                           end_cap = ggraph::circle(node_size / 2, 'mm'))+
-    ggraph::geom_node_point(ggplot2::aes(fill = paste(type, permanent),
-                                         color = permanent),
+    ggraph::geom_node_point(ggplot2::aes(fill = paste(ifelse(type != "", type, "transient"),
+                                                      ifelse(permanent, "permanent", "nonpermanent"))),
                             shape = 21, stroke = node_stroke,
                             size = node_size)+
     ggraph::geom_node_text(mapping = ggplot2::aes(label = name), color = text_color,
                            size = 3.88 * node_size / 16)+
-    ggplot2::scale_fill_manual(values = node_fill)+
+    ggplot2::scale_fill_manual(name = "state type", values = node_fill)+
     ggplot2::scale_color_manual(name = "permanence", values = node_color)+
     ggraph::scale_edge_color_manual(name = "invasion type", values = edge_color)+
     ggraph::scale_edge_width_manual(name = "invasion type", values = edge_width)+
-    # ggplot2::scale_alpha_manual(name = "permanence", values = node_alpha)+
     ggraph::theme_graph()
   return(out)
 }

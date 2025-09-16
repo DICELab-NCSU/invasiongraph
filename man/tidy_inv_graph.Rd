@@ -7,7 +7,7 @@
 tidy_inv_graph(dat, omit = c(), bend = 0.75)
 }
 \arguments{
-\item{dat}{llist containing an invasion graph and corresponding metadata}
+\item{dat}{list containing an invasion graph and corresponding metadata}
 
 \item{omit}{character vector of communities to omit from the plot}
 

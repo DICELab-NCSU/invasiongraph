@@ -1,6 +1,6 @@
 #' Tidy invasion graph
 #'
-#' @param dat llist containing an invasion graph and corresponding metadata
+#' @param dat list containing an invasion graph and corresponding metadata
 #' @param omit character vector of communities to omit from the plot
 #' @param bend numeric, degree to bend nodes of the same diversity (0 is linear, 1 is maximum)
 #' @return a tibble representation of the invasion graph, with added metadata

@@ -2,6 +2,7 @@
 
 export(adj2char)
 export(count_paths)
+export(end_states)
 export(flatten_matrix)
 export(ggIG)
 export(inv_graph)
