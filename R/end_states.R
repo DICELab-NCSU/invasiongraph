@@ -18,15 +18,7 @@
 #'
 end_states <- function(dat) {
   if(!dat$acyclic) stop("Invasion graph must be acyclic.")
-  end.states <- vector(mode = "list")
-  for(i in 1:length(dat$minus.i)) {
-    who <- dat$minus.i[i][[1]]
-    com <- dat$composition[[who]]  # TODO: fix to allow multiple invasions (-com in next line)
-    if(max(dat$IS[who, -com]) < 0) {
-      end.states[[i]] <- who
-    }
-  }
-  end.states[sapply(end.states, is.null)] <- NULL
-  out <- lapply(unique(end.states), function(x) dat$composition[[x]])
+  idx <- which(rowSums(dat$IG) == 0L)
+  out <- dat$composition[idx]
   return(out)
 }
